@@ -1,7 +1,7 @@
 localrules: reads_multiqc
 
 rule reads_fastqc:
-    input: ancient(lambda wildcards: SAMPLES_DF.loc[wildcards.sample, 'File'])
+    input: lambda wildcards: ancient(SAMPLES_DF.loc[wildcards.sample, 'File'])
     output:
           html="results/qc/fastqc/{sample}.html",
           zip="results/qc/fastqc/{sample}_fastqc.zip"
