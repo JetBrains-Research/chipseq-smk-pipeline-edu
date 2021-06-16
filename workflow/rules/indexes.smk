@@ -21,8 +21,12 @@ rule bowtie2_index:
         extra=config['bowtie2_index']['extra']
 
     resources:
+        # for generic-enhanced cluster profile:
         time=60 * 4,
         mem_ram=15
+        # for lsf cluster profile:
+        # time_min=60 * 4,
+        # mem_mb=15*1024
 
     # Wrapper uses old 2.4.1 bowtie2, which doesn't work on my mac
     # let's use custom conda env file with another bowtie2 version
