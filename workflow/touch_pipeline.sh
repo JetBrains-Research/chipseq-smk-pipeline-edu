@@ -78,3 +78,5 @@ echo "* Files number:"
 find . \! \( -type d -or -type l \) -mtime +2 | wc -l
 echo "* First 10:"
 find . \! \( -type d -or -type l \) -mtime +2 | head
+
+echo "====== DONE ==========="
