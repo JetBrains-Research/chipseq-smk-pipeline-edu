@@ -18,7 +18,8 @@ find logs -type f -exec touch {} +
 
 echo "-----------"
 echo "3. touch snakemake pipeline results:"
-snakemake --use-conda --cores 1 -q --touch --forceall
+snakemake --use-conda --cores 1 -q --touch --forceall -n
+snakemake --use-conda --cores 1 --touch --forceall
 
 echo "-----------"
 echo "4. rules outputs marked as directories only"
