@@ -13,4 +13,5 @@ results
 resources
 logs
 benchmarks
+tmp
 lsf_docker_env_file.env
