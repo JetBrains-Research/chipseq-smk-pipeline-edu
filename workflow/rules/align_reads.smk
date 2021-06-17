@@ -2,7 +2,8 @@ localrules: bams_multiqc
 
 rule align_reads_se:
     input:
-        sample=lambda wildcards: ancient(SAMPLES_DF.loc[wildcards.sample, 'File']),
+        # bowtie2 expects 'sample' to be a iterable
+        sample=lambda wildcards: [ancient(SAMPLES_DF.loc[wildcards.sample, 'File'])],
         indexes=ancient(rules.bowtie2_index.output)
     output:
         temp("results/bams/{sample}_{genome}.bam")
