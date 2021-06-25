@@ -5,7 +5,7 @@ rule bam_bigwig:
     output:
         "results/bigwig/{sample}_{genome}.bw"
     benchmark:
-        "benchmarks/bigwig/{sample}_{genome}.bw.txt"
+        "logs/benchmarks/bigwig/{sample}_{genome}.bw.txt"
     log:
         "logs/bigwig/{sample}_{genome}.bw.log"
     conda:

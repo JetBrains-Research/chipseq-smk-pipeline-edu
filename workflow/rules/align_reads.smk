@@ -8,7 +8,7 @@ rule align_reads_se:
     output:
         temp("results/bams/{sample}_{genome}.bam")
     benchmark:
-        "benchmarks/bams/{sample}_{genome}.bam.txt"
+        "logs/benchmarks/bams/{sample}_{genome}.bam.txt"
     log:
         "logs/bams/{sample}_{genome}.bam.log"
     params:
@@ -28,7 +28,7 @@ rule bam_sort:
     log:
         "logs/bams_sorted/{sample}_{genome}.sorted.bam.log",
     benchmark:
-        "benchmarks/bams_sorted/{sample}_{genome}.sorted.bam.txt",
+        "logs/benchmarks/bams_sorted/{sample}_{genome}.sorted.bam.txt",
     params:
         sort_order="coordinate",
         # see all options: https://gatk.broadinstitute.org/hc/en-us/articles/360036510732-SortSam-Picard-

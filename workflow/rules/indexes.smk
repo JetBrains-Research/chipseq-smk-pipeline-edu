@@ -14,7 +14,7 @@ rule bowtie2_index:
             '.1.bt2','.2.bt2','.3.bt2','.4.bt2','.rev.1.bt2','.rev.2.bt2',
         ),
     log: "logs/indexes/{genome}.log"
-    benchmark: "benchmarks/indexes/{genome}.txt"
+    benchmark: "logs/benchmarks/indexes/{genome}.txt"
 
     threads: config['bowtie2_index']['threads']
     params:
