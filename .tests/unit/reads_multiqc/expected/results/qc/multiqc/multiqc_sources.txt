@@ -1,0 +1,7 @@
+Module	Section	Sample Name	Source
+FastQC	all_sections	SRR787552.chr15	/Users/romeo/work/tutoring/2021_ITMO_Snakemake/chipseq-smk-pipeline-edu/results/qc/fastqc/GSM1102782_CD14_H3K27ac_fastqc.zip
+FastQC	all_sections	SRR787524.chr15	/Users/romeo/work/tutoring/2021_ITMO_Snakemake/chipseq-smk-pipeline-edu/results/qc/fastqc/GSM1102793_CD14_H3K4me1_fastqc.zip
+FastQC	all_sections	SRR787528.chr15	/Users/romeo/work/tutoring/2021_ITMO_Snakemake/chipseq-smk-pipeline-edu/results/qc/fastqc/GSM1102785_CD14_H3K27me3_fastqc.zip
+FastQC	all_sections	SRR787515.chr15	/Users/romeo/work/tutoring/2021_ITMO_Snakemake/chipseq-smk-pipeline-edu/results/qc/fastqc/GSM1102797_CD14_H3K4me3_fastqc.zip
+FastQC	all_sections	SRR787513.chr15	/Users/romeo/work/tutoring/2021_ITMO_Snakemake/chipseq-smk-pipeline-edu/results/qc/fastqc/GSM1102807_CD14_input_fastqc.zip
+FastQC	all_sections	SRR787529.chr15	/Users/romeo/work/tutoring/2021_ITMO_Snakemake/chipseq-smk-pipeline-edu/results/qc/fastqc/GSM1102788_CD14_H3K36me3_fastqc.zip

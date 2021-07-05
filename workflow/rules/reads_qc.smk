@@ -13,12 +13,12 @@ rule reads_fastqc:
 rule reads_multiqc:
     input:
         expand(
-            rules.reads_fastqc.output.html,
+            rules.reads_fastqc.output,
             sample=SAMPLES_DF.index
         )
     output:
-        "results/qc/multiqc/reads.html",
-         directory("results/qc/multiqc/reads_data")
+        html="results/qc/multiqc/reads.html",
+        html_data=directory("results/qc/multiqc/reads_data")
     log: "logs/qc/multiqc/reads.log"
     wrapper:
         "0.74.0/bio/multiqc"

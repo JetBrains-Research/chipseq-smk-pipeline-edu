@@ -62,3 +62,57 @@ with outputs marked as `temp(..)`, see https://github.com/snakemake/snakemake/is
 ```shell
 ./workflow/touch_pipeline.sh | grep -v "macs2" | grep -v ".idea"
 ```
+
+##  Unit tests
+
+### Run
+```shell
+pytest .tests/unit/test_bam_bigwig.py # Passes
+pytest .tests/unit//test_reads_multiqc.py # Fails, custom matcher required
+```
+### Generate
+Doesn't work smooth in Snakemake `6.5.1`, but could be done.
+
+> **NB** Snakemake 6.5.1 tests generator doesn't work with 'multiqc' results (e.g. some case with directories in output), it fails with the error that directory already exists, workaround. Fix add `dirs_exist_ok=True`:
+> ```python
+>  # snakemake 6.5.1 : python3.8/site-packages/snakemake/unit_tests/__init__.py
+>  # ~ line 81
+>  if f.is_dir():
+>      shutil.copytree(f, target, dirs_exist_ok=True)
+>  ```
+
+
+Assume the pipeline already executed pipeline:
+
+```shell
+ snakemake -pr --use-conda   --generate-unit-tests
+```
+
+Create config symlink:
+```shell
+cd .tests/unit
+ln -s ../../config
+```
+
+Fix every text, add:
+```python
+config_path = PurePosixPath(".tests/unit/config")
+
+# Copy data to the temporary workdir.
+shutil.copytree(data_path, workdir)
+shutil.copytree(config_path, workdir / "config") # copy config
+```
+
+Update `common.py`:
+```python
+# ...
+for f in files:
+    f = (Path(path) / f).relative_to(self.workdir)
+    if (
+            str(f).startswith(".snakemake")
+            or str(f).startswith("config/") # add config
+            or str(f).startswith("logs/")  # add logs
+    ):
+        continue
+# ...
+```

@@ -1,16 +1,6 @@
-# PyCharm project files
-.idea
+/*
 
-# MacOS index file
-.DS_Store
-
-# Snakemake internal directory
-.snakemake
-
-# Pipeline input files and results
-reads
-results
-resources
-logs
-tmp
-lsf_docker_env_file.env
+!/workflow/
+!/config/
+!/images/
+!/.tests
